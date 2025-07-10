@@ -1,40 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VibeCode - Coming Soon</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VibeCode - Coming Soon</title>
+  <link rel="stylesheet" href="style.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap"
+    rel="stylesheet"
+  />
+  <script src="https://cdn.auth0.com/js/auth0-spa-js/1.22/auth0-spa-js.production.js" defer></script>
 </head>
 <body>
-    <div class="stars"></div>
-    <main>
-        <div class="container">
-            <img src="assets/logo.png" alt="VibeCode Logo" class="logo">
-            <h1>VibeCode</h1>
-            <p>VibeCode is an AI-powered platform that allows you to generate web applications from simple text descriptions. Turn your ideas into reality, no code required.</p>
-<div class="buttons">
-  <a href="public/whitepaper.html" class="btn btn-primary">Whitepaper</a>
-  <a href="http://blog.vibecodes.space/posts/Currentprojects.html" class="btn btn-secondary">Blog</a>
-    <a href="https://portfolio-vibecode.onrender.com/" class="btn btn-secondary">Portfolio</a>
-</div>
-        </div>
-    </main>
-    <footer>
-        <div class="social">
-            <a href="https://www.linkedin.com/in/mattjhagen?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" rel="noopener noreferrer"><img src="assets/linkedin.svg" alt="LinkedIn"></a>
-            <a href="https://github.com/Packie" target="_blank" rel="noopener noreferrer"><img src="assets/github.svg" alt="GitHub"></a>
-            <a href="https://www.reddit.com/u/PackieAI/s/hBxmSvCt9R" target="_blank" rel="noopener noreferrer"><img src="assets/reddit.svg" alt="Reddit"></a>
-            <a href="https://discord.gg/wpde4HSS" target="_blank" rel="noopener noreferrer"><img src="assets/discord.svg" alt="Discord"></a>
-            <a href="https://coff.ee/vibecodes" target="_blank" rel="noopener noreferrer"><img src="assets/coffee.svg" alt="Buy Me a Coffee"></a>
-            <a href="https://github.com/Mattjhagen/vibeCodeSpace" target="_blank" rel="noopener noreferrer"><img src="public/reddit_icon.svg" alt="GitHub"></a>
-        </div>
-        <div class="links">
-            <a href="public/terms-of-service.html">Terms of Service</a>
-            <a href="public/privacy-policy.html">Privacy Policy</a>
-        </div>
-        <p class="copyright">&copy; 2025 PacMac Mobile LLC</p>
-    </footer>
+  <div class="stars"></div>
+  <main>
+    <div class="container">
+      <img src="assets/logo.png" alt="VibeCode Logo" class="logo" />
+      <h1>VibeCode</h1>
+      <p>
+        VibeCode is an AI-powered platform that allows you to generate web
+        applications from simple text descriptions. Turn your ideas into
+        reality, no code required.
+      </p>
+
+      <div class="buttons">
+        <a href="public/whitepaper.html" class="btn btn-primary">Whitepaper</a>
+        <a
+          href="http://blog.vibecodes.space/posts/Currentprojects.html"
+          class="btn btn-secondary"
+          >Blog</a
+        >
+        <a href="https://portfolio-vibecode.onrender.com/" class="btn btn-secondary"
+          >Portfolio</a
+        >
+      </div>
+
+      <!-- AUTH0 LOGIN BUTTONS & USER INFO -->
+      <div class="auth-buttons" style="margin-top: 2rem;">
+        <button id="loginBtn" class="btn btn-primary">Log In / Sign Up</button>
+        <button id="logoutBtn" class="btn btn-secondary" style="display:none;">
+          Log Out
+        </button>
+        <div id="userProfile" style="margin-top:1rem; font-weight:600;"></div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="social">
+      <a
+        href="https://www.linkedin.com/in/mattjhagen?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <img src="assets/linkedin.svg" alt="LinkedIn" />
+      </a>
+      <a href="https://github.com/Packie" target="_blank" rel="noopener noreferrer">
+        <img src="assets/github.svg" alt="GitHub" />
+      </a>
+      <a
+        href="https://www.reddit.com/u/PackieAI/s/hBxmSvCt9R"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <img src="assets/reddit.svg" alt="Reddit" />
+      </a>
+      <a href="https://discord.gg/wpde4HSS" target="_blank" rel="noopener noreferrer">
+        <img src="assets/discord.svg" alt="Discord" />
+      </a>
+      <a href="https://coff.ee/vibecodes" target="_blank" rel="noopener noreferrer">
+        <img src="assets/coffee.svg" alt="Buy Me a Coffee" />
+      </a>
+      <a
+        href="https://github.com/Mattjhagen/vibeCodeSpace"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <img src="public/reddit_icon.svg" alt="GitHub" />
+      </a>
+    </div>
+    <div class="links">
+      <a href="public/terms-of-service.html">Terms of Service</a>
+      <a href="public/privacy-policy.html">Privacy Policy</a>
+    </div>
+    <p class="copyright">&copy; 2025 PacMac Mobile LLC</p>
+  </footer>
+
+  <script>
+    // Wait for Auth0 SDK to load
+    window.onload = async () => {
+      // Initialize Auth0 client
+      const auth0 = await createAuth0Client({
+        domain: "vibecodes.us.auth0.com", // your Auth0 domain
+        client_id: "sR6Ap78ysO9xJZ3dBvP6PlvCYrLeQWYn", // your Auth0 client ID
+        cacheLocation: "localstorage", // persist login even after refresh
+      });
+
+      const loginBtn = document.getElementById("loginBtn");
+      const logoutBtn = document.getElementById("logoutBtn");
+      const userProfile = document.getElementById("userProfile");
+
+      // Check if returning from Auth0 redirect
+      if (
+        window.location.search.includes("code=") &&
+        window.location.search.includes("state=")
+      ) {
+        try {
+          await auth0.handleRedirectCallback();
+          window.history.replaceState({}, document.title, "/");
+        } catch (err) {
+          console.error("Error handling redirect:", err);
+        }
+      }
+
+      // Update UI based on login state
+      const updateUI = async () => {
+        const user = await auth0.getUser();
+
+        if (user) {
+          loginBtn.style.display = "none";
+          logoutBtn.style.display = "inline-block";
+          userProfile.textContent = `Hello, ${user.name || user.email}!`;
+        } else {
+          loginBtn.style.display = "inline-block";
+          logoutBtn.style.display = "none";
+          userProfile.textContent = "";
+        }
+      };
+
+      // Login button click handler
+      loginBtn.onclick = async () => {
+        try {
+          // Try popup login first
+          await auth0.loginWithPopup();
+          await updateUI();
+        } catch (err) {
+          // fallback to redirect if popup blocked
+          await auth0.loginWithRedirect({
+            redirect_uri: window.location.origin,
+          });
+        }
+      };
+
+      // Logout button click handler
+      logoutBtn.onclick = () => {
+        auth0.logout({
+          returnTo: window.location.origin,
+        });
+      };
+
+      // Initialize UI
+      await updateUI();
+    };
+  </script>
 </body>
 </html>
