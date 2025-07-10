@@ -203,3 +203,20 @@ box-shadow: 0 0 10px #5DE794;
   color: #fff;
   font-weight: 600;
 }
+.swiftgenie-btn {
+  background: linear-gradient(45deg, #ff00cc, #3333ff);
+  color: #fff;
+  font-weight: 800;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 30px;
+  font-size: 1rem;
+  text-decoration: none;
+  box-shadow: 0 0 15px rgba(255, 0, 204, 0.6);
+  transition: transform 0.2s, box-shadow 0.3s;
+}
+
+.swiftgenie-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(51, 51, 255, 0.8);
+}
