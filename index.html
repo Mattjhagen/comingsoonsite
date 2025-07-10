@@ -12,6 +12,12 @@
   <script src="https://cdn.auth0.com/js/auth0-spa-js/1.22/auth0-spa-js.production.js" defer></script>
 </head>
 <body>
+  <!-- Auth Buttons - Top Right -->
+<div class="auth-topbar">
+  <button id="loginBtn" class="btn btn-login">Log In / Sign Up</button>
+  <button id="logoutBtn" class="btn btn-secondary" style="display:none;">Log Out</button>
+  <span id="userProfile"></span>
+</div>
   <div class="stars"></div>
   <main>
     <div class="container">
@@ -34,16 +40,6 @@
           >Portfolio</a
         >
       </div>
-
-      <!-- AUTH0 LOGIN BUTTONS & USER INFO -->
-      <div class="auth-buttons" style="margin-top: 2rem;">
-        <button id="loginBtn" class="btn btn-primary">Log In / Sign Up</button>
-        <button id="logoutBtn" class="btn btn-secondary" style="display:none;">
-          Log Out
-        </button>
-        <div id="userProfile" style="margin-top:1rem; font-weight:600;"></div>
-      </div>
-    </div>
   </main>
 
   <footer>
