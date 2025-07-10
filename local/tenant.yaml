@@ -244,7 +244,7 @@ connections:
 tenant:
   allowed_logout_urls:
     - https://vibecodes.space/auth/signout
-  default_redirection_uri: https://vibecodes.space/auth/authorize
+  default_redirection_uri: "https://vibecodes.space
   enabled_locales:
     - en
   flags:
