@@ -220,3 +220,25 @@ box-shadow: 0 0 10px #5DE794;
   transform: scale(1.05);
   box-shadow: 0 0 25px rgba(51, 51, 255, 0.8);
 }
+.swiftgenie-link {
+  font-weight: 800;
+  color: #ff00cc; /* Hot pink to match your Whitepaper button */
+  font-size: 1rem;
+  text-decoration: none;
+  padding: 8px 16px;
+  border: 2px solid #ff00cc;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  background-color: rgba(255, 0, 204, 0.1);
+  backdrop-filter: blur(4px);
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.swiftgenie-link:hover {
+  background-color: #ff00cc;
+  color: black;
+  box-shadow: 0 0 15px #ff00cc;
+  transform: scale(1.05);
+}
