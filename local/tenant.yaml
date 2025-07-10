@@ -1,0 +1,476 @@
+rules: []
+rulesConfigs: []
+pages:
+  - name: error_page
+    url: https://vibecodes.space/404.html
+resourceServers: []
+clients:
+  - name: ResumAI
+    client_id: sR6Ap78ysO9xJZ3dBvP6PlvCYrLeQWYn
+    allowed_clients: []
+    app_type: non_interactive
+    callbacks: []
+    client_aliases: []
+    cross_origin_auth: false
+    cross_origin_authentication: false
+    custom_login_page_on: true
+    grant_types:
+      - client_credentials
+    is_first_party: true
+    is_token_endpoint_ip_header_trusted: false
+    jwt_configuration:
+      alg: RS256
+      lifetime_in_seconds: 36000
+      secret_encoded: false
+    logo_uri: https://vibecodes.space/assets/logo.png
+    native_social_login:
+      apple:
+        enabled: false
+      facebook:
+        enabled: false
+    oidc_conformant: false
+    refresh_token:
+      expiration_type: non-expiring
+      leeway: 0
+      infinite_token_lifetime: true
+      infinite_idle_token_lifetime: true
+      token_lifetime: 31557600
+      idle_token_lifetime: 2592000
+      rotation_type: non-rotating
+    sso_disabled: false
+    token_endpoint_auth_method: client_secret_post
+databases:
+  - name: Username-Password-Authentication
+    strategy: auth0
+    id: con_bIXD0T22oSB0oa7p
+    enabled_clients:
+      - ResumAI
+    is_domain_connection: false
+    options:
+      mfa:
+        active: true
+        return_enroll_settings: true
+      import_mode: false
+      customScripts:
+        change_password: ./databases/Username-Password-Authentication/change_password.js
+        create: ./databases/Username-Password-Authentication/create.js
+        delete: ./databases/Username-Password-Authentication/delete.js
+        get_user: ./databases/Username-Password-Authentication/get_user.js
+        login: ./databases/Username-Password-Authentication/login.js
+        verify: ./databases/Username-Password-Authentication/verify.js
+      passwordPolicy: good
+      passkey_options:
+        challenge_ui: both
+        local_enrollment_enabled: true
+        progressive_enrollment_enabled: true
+      password_history:
+        size: 5
+        enable: false
+      strategy_version: 2
+      password_dictionary:
+        enable: false
+        dictionary: []
+      authentication_methods:
+        passkey:
+          enabled: false
+        password:
+          enabled: true
+      brute_force_protection: true
+      password_no_personal_info:
+        enable: false
+      password_complexity_options:
+        min_length: 8
+      enabledDatabaseCustomization: false
+    realms:
+      - Username-Password-Authentication
+connections:
+  - name: github
+    strategy: github
+    id: con_fn4FlEv0qAvstbt3
+    enabled_clients:
+      - ResumAI
+    is_domain_connection: false
+    options:
+      gist: false
+      repo: true
+      email: true
+      scope:
+        - repo
+        - user:email
+        - user:follow
+        - read:user
+        - public_repo
+        - repo:status
+        - repo_deployment
+      follow: true
+      profile: true
+      read_org: false
+      admin_org: false
+      client_id: Ov23lirecxDPFEKNLYd5
+      read_user: true
+      write_org: false
+      delete_repo: false
+      public_repo: true
+      repo_status: true
+      client_secret: '##CONNECTIONS_GITHUB_SECRET##'
+      notifications: false
+      read_repo_hook: false
+      admin_repo_hook: false
+      read_public_key: false
+      repo_deployment: true
+      write_repo_hook: false
+      admin_public_key: false
+      write_public_key: false
+  - name: google-oauth2
+    strategy: google-oauth2
+    id: con_c8pfUUbAXUv5JAeG
+    enabled_clients:
+      - ResumAI
+    is_domain_connection: false
+    options:
+      drive: false
+      email: true
+      gmail: false
+      orkut: false
+      scope:
+        - email
+        - profile
+        - https://www.googleapis.com/auth/calendar
+        - https://mail.google.com/
+        - https://www.googleapis.com/auth/gmail.send
+        - https://www.googleapis.com/auth/gmail.insert
+        - https://www.googleapis.com/auth/gmail.labels
+        - https://www.googleapis.com/auth/gmail.modify
+        - https://www.googleapis.com/auth/gmail.compose
+        - https://www.googleapis.com/auth/gmail.metadata
+        - https://www.googleapis.com/auth/gmail.readonly
+        - https://www.googleapis.com/auth/calendar.events
+        - https://www.googleapis.com/auth/gmail.settings.basic
+        - https://www.googleapis.com/auth/gmail.settings.sharing
+        - https://www.googleapis.com/auth/calendar.addons.execute
+        - https://www.googleapis.com/auth/calendar.events.readonly
+        - https://www.googleapis.com/auth/calendar.settings.readonly
+      sites: false
+      tasks: false
+      blogger: false
+      profile: true
+      youtube: false
+      calendar: true
+      contacts: false
+      analytics: false
+      client_id: Ov23lirecxDPFEKNLYd5
+      gmail_new: true
+      moderator: false
+      coordinate: false
+      drive_file: false
+      gmail_send: true
+      picasa_web: false
+      google_plus: false
+      youtube_new: false
+      contacts_new: false
+      gmail_insert: true
+      gmail_labels: true
+      gmail_modify: true
+      google_books: false
+      google_drive: false
+      spreadsheets: false
+      calendar_read: true
+      client_secret: '##CONNECTIONS_GOOGLE_OAUTH2_SECRET##'
+      document_list: false
+      drive_appdata: false
+      drive_scripts: false
+      gmail_compose: true
+      latitude_best: false
+      latitude_city: false
+      presentations: false
+      url_shortener: false
+      drive_activity: false
+      drive_metadata: false
+      drive_readonly: false
+      gmail_metadata: true
+      gmail_readonly: true
+      offline_access: true
+      tasks_readonly: false
+      youtube_upload: false
+      youtubepartner: false
+      calendar_events: true
+      upstream_params:
+        access_type:
+          value: offline
+      webmaster_tools: false
+      chrome_web_store: false
+      youtube_forcessl: false
+      youtube_readonly: false
+      allowed_audiences: ''
+      contacts_readonly: false
+      adsense_management: false
+      directory_readonly: false
+      google_drive_files: false
+      coordinate_readonly: false
+      drive_apps_readonly: false
+      gmail_settings_basic: true
+      google_cloud_storage: false
+      drive_photos_readonly: false
+      spreadsheets_readonly: false
+      gmail_settings_sharing: true
+      presentations_readonly: false
+      calendar_addons_execute: true
+      contacts_other_readonly: false
+      drive_activity_readonly: false
+      drive_metadata_readonly: false
+      calendar_events_readonly: true
+      content_api_for_shopping: false
+      google_affiliate_network: false
+      calendar_settings_readonly: true
+      youtubepartner_channelaudit: false
+      youtube_channelmemberships_creator: false
+  - name: linkedin
+    strategy: linkedin
+    id: con_8wUVIX3IYgE3VMK0
+    enabled_clients:
+      - ResumAI
+    is_domain_connection: false
+    options:
+      email: true
+      scope:
+        - email
+        - openid
+        - profile
+      openid: true
+      profile: true
+      client_id: db492a84c868dcde693e993dcd88978087e9e42c
+      client_secret: '##CONNECTIONS_LINKEDIN_SECRET##'
+      strategy_version: 3
+tenant:
+  allowed_logout_urls:
+    - https://vibecodes.space/auth/signout
+  default_redirection_uri: https://vibecodes.space/auth/authorize
+  enabled_locales:
+    - en
+  flags:
+    enable_adfs_waad_email_verification: true
+    enable_dynamic_client_registration: true
+    revoke_refresh_token_grant: false
+    mfa_show_factor_list_on_enrollment: true
+    disable_clickjack_protection_headers: false
+  friendly_name: PacMac Mobile LLC
+  idle_session_lifetime: 72
+  oidc_logout:
+    rp_logout_end_session_endpoint_discovery: true
+  picture_url: https://vibecodes.space/assets/logo.png
+  sandbox_version: '22'
+  session_lifetime: 168
+  sessions:
+    oidc_logout_prompt_enabled: false
+  support_email: matty@vibecodes.space
+  support_url: https://vibecodes.space/support
+  universal_login:
+    colors:
+      page_background: '#000000'
+      primary: '#635dff'
+emailProvider:
+  name: custom
+  credentials: {}
+  default_from_address: matty@vibecodes.space
+  enabled: true
+emailTemplates:
+  - template: verify_email
+    body: ./emailTemplates/verify_email.html
+    enabled: true
+    from: matty@vibecodes.space
+    resultUrl: https://vibecodes.space/auth/sucess
+    subject: Welcome to VibeCode! Please Verify your email
+    syntax: liquid
+    urlLifetimeInSeconds: 432000
+clientGrants: []
+guardianFactors:
+  - name: duo
+    enabled: false
+  - name: email
+    enabled: true
+  - name: otp
+    enabled: true
+  - name: push-notification
+    enabled: false
+  - name: recovery-code
+    enabled: true
+  - name: sms
+    enabled: false
+  - name: webauthn-platform
+    enabled: false
+  - name: webauthn-roaming
+    enabled: false
+guardianPolicies:
+  policies:
+    - confidence-score
+guardianPhoneFactorMessageTypes:
+  message_types: []
+roles:
+  - name: matty
+    id: rol_wJp1JncbtEgwG8oG
+    description: admin
+    permissions: []
+branding:
+  colors:
+    page_background: '#000000'
+    primary: '#635dff'
+  logo_url: https://vibecodes.space/assets/logo.png
+  templates: []
+phoneProviders: []
+prompts:
+  customText: {}
+  enable_ulp_wcag_compliance: true
+  identifier_first: false
+  partials: {}
+  screenRenderers: []
+  universal_login_experience: new
+actions:
+  - name: Custom Email Provider
+    code: ./actions/Custom Email Provider/code.js
+    dependencies: []
+    deployed: true
+    runtime: node22
+    secrets: []
+    status: built
+    supported_triggers:
+      - id: custom-email-provider
+        version: v1
+triggers:
+  custom-email-provider:
+    - action_name: Custom Email Provider
+      display_name: Custom Email Provider
+organizations:
+  - name: vb_admin
+    id: org_uPfC02VXK4ZDh2xH
+    branding:
+      logo_url: https://vibecodes.space/assets/logo.png
+      colors:
+        page_background: '#000000'
+        primary: '#ff5b77'
+    client_grants: []
+    connections:
+      - name: Username-Password-Authentication
+        assign_membership_on_login: true
+        is_signup_enabled: true
+        show_as_button: true
+      - name: github
+        assign_membership_on_login: true
+        show_as_button: true
+      - name: google-oauth2
+        assign_membership_on_login: true
+        show_as_button: true
+      - name: linkedin
+        assign_membership_on_login: true
+        show_as_button: true
+    display_name: vibecodes
+attackProtection:
+  breachedPasswordDetection:
+    enabled: false
+    shields: []
+    admin_notification_frequency: []
+    method: standard
+    stage:
+      pre-user-registration:
+        shields: []
+      pre-change-password:
+        shields: []
+  bruteForceProtection:
+    enabled: true
+    shields:
+      - block
+      - user_notification
+    mode: count_per_identifier_and_ip
+    allowlist: []
+    max_attempts: 10
+  suspiciousIpThrottling:
+    enabled: true
+    shields:
+      - admin_notification
+      - block
+    allowlist: []
+    stage:
+      pre-login:
+        max_attempts: 100
+        rate: 864000
+      pre-user-registration:
+        max_attempts: 50
+        rate: 1200
+logStreams:
+  - name: Datadog
+    id: lst_0000000000000540
+    isPriority: false
+    sink:
+      datadogApiKey: '##LOGSTREAMS_DATADOG_SECRET##'
+      datadogRegion: us
+    status: active
+    type: datadog
+customDomains: []
+themes:
+  - borders:
+      button_border_weight: 1
+      buttons_style: rounded
+      button_border_radius: 3
+      input_border_weight: 1
+      inputs_style: rounded
+      input_border_radius: 3
+      widget_corner_radius: 5
+      widget_border_weight: 0
+      show_widget_shadow: true
+    colors:
+      primary_button: '#ff5b77'
+      primary_button_label: '#ffffff'
+      secondary_button_border: '#c9cace'
+      secondary_button_label: '#1e212a'
+      base_focus_color: '#635dff'
+      base_hover_color: '#000000'
+      links_focused_components: '#635dff'
+      header: '#1e212a'
+      body_text: '#1e212a'
+      widget_background: '#ffffff'
+      widget_border: '#c9cace'
+      input_labels_placeholders: '#65676e'
+      input_filled_text: '#000000'
+      input_border: '#c9cace'
+      input_background: '#ffffff'
+      icons: '#65676e'
+      error: '#d03c38'
+      success: '#13a688'
+      captcha_widget_theme: light
+    displayName: Unnamed Theme
+    fonts:
+      font_url: ''
+      reference_text_size: 16
+      title:
+        bold: false
+        size: 150
+      subtitle:
+        bold: false
+        size: 87.5
+      body_text:
+        bold: false
+        size: 87.5
+      buttons_text:
+        bold: false
+        size: 100
+      input_labels:
+        bold: false
+        size: 100
+      links:
+        bold: true
+        size: 87.5
+      links_style: normal
+    page_background:
+      page_layout: center
+      background_color: '#000'
+      background_image_url: ''
+    themeId: P9Pv4taLg0bzqnxrPr4VK6atJFDYJ35A
+    widget:
+      logo_position: center
+      logo_url: https://vibecodes.space/assets/logo.png
+      logo_height: 52
+      header_text_alignment: center
+      social_buttons_layout: bottom
+forms: []
+flows: []
+flowVaultConnections: []
+selfServiceProfiles: []
